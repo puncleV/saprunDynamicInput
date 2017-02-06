@@ -18,7 +18,6 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
             },
             link: function(scope) {
                 scope.maxlength = parseInt(scope.maxlength, 10);
-                console.log(scope.maxlength)
                 if( scope.unit == null ) { scope.unit = ""; }
                 scope.changeHandler = () => {
                     if( !isNaN(scope.maxlength) && ( scope.value.length > scope.maxlength ) ) {
