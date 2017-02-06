@@ -1,0 +1,25 @@
+
+saprun-dynamic-input input {
+    border: none;
+    background-color: inherit;
+    padding: 0;
+    position: absolute;
+}
+
+saprun-dynamic-input input:focus {
+    outline: none;
+}
+
+saprun-dynamic-input {
+    display: flex;
+}
+
+saprun-dynamic-input .spacer{
+    height: 0;
+    overflow: hidden;
+}
+
+saprun-dynamic-input {
+    position: relative;
+    overflow: hidden;
+}

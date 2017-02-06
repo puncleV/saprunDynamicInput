@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Angular Popover</title>
+		<link rel="stylesheet" href="saprun-dynamic-input.css">
+		<style>
+            .centered {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: inline-block;
+                height: 100px;
+                margin: auto;
+            }
+
+            .space-between {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+		</style>
+	</head>
+	<body ng-app="testDynamicInput" ng-controller="testCtrl">
+		<div class="centered">
+			<div class="space-between">
+                <saprun-dynamic-input value="inputValue" change="changeHandler" unit="herring" maxlength="3"></saprun-dynamic-input>
+                <saprun-dynamic-input value="inputValue" change="changeHandler" unit="Eur"></saprun-dynamic-input>
+                <saprun-dynamic-input value="inputValue" change="changeHandler"></saprun-dynamic-input>
+            </div>
+		</div>	
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script src="../src/saprun-dynamic-input.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
