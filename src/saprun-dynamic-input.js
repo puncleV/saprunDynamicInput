@@ -6,7 +6,7 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
             transclude: true,
             template: `
                 <div>
-                  <input ng-model="value" ng-change="changeHandler()">
+                  <input ng-model="value" ng-change="change()" maxlength="{{maxlength}}">
                   <div class="spacer" ng-bind="value"></div>
                 </div>
                 <span class="symbol" ng-bind="unit"></span>`,
@@ -19,12 +19,6 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
             link: function(scope) {
                 scope.maxlength = parseInt(scope.maxlength, 10);
                 if( scope.unit == null ) { scope.unit = ""; }
-                scope.changeHandler = () => {
-                    if( !isNaN(scope.maxlength) && ( scope.value.length > scope.maxlength ) ) {
-                        scope.value = scope.value.substr(0, scope.maxlength);
-                    }
-                    scope.change();
-                }
             }
         }
 });
