@@ -9,7 +9,7 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
                   <input ng-model="value" ng-change="changeHandler()">
                   <div class="spacer" ng-bind="value"></div>
                 </div>
-                <span class="symbol" ng-bind="::unit"></span>`,
+                <span class="symbol" ng-bind="unit"></span>`,
             scope: {
                 value: "=",
                 change: "=",
