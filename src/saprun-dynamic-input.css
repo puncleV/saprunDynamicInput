@@ -23,6 +23,7 @@ saprun-dynamic-input div.spacer{
 saprun-dynamic-input div.input-container {
     display: inline-table;
     height: 50%;
+    padding-left: 5px;
 }
 
 saprun-dynamic-input input {
