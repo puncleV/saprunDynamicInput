@@ -1,6 +1,6 @@
 {
   "name": "saprun-dynamic-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom dynamic input to floating unit depending on value size",
   "main": "dist/saprun-dynamic-input.js",
   "repository": {
