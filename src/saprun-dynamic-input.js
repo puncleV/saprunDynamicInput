@@ -5,20 +5,28 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
             restrict: 'E',
             transclude: true,
             template: `
-                <div>
-                  <input ng-model="value" ng-change="change()" maxlength="{{maxlength}}">
-                  <div class="spacer" ng-bind="value"></div>
+                <div class="container" tabindex="1">
+                    <div class="input-container">
+                      <input ng-model="value" ng-change="changeHandler()" maxlength="{{maxlength}}">
+                      <div class="spacer" ng-bind="charSpacer + value"></div>
+                    </div>
+                    <span class="unit" ng-bind="unit"></span>
                 </div>
-                <span class="symbol" ng-bind="unit"></span>`,
+            `,
             scope: {
                 value: "=",
-                change: "=",
+                change: "&",
                 unit: "@",
-                maxlength: "="
+                maxlength: "=?"
             },
             link: function(scope) {
-                scope.maxlength = parseInt(scope.maxlength, 10);
                 if( scope.unit == null ) { scope.unit = ""; }
+                if( scope.maxlength == null ) { scope.maxlength = ""; }
+                scope.changeHandler = () => {
+                    let currentValue = scope.value;
+                    scope.charSpacer = ( currentValue.length == 0 ) ? "0" : "";
+                    scope.change();
+                }
             }
         }
 });
