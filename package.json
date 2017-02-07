@@ -1,6 +1,6 @@
 {
   "name": "saprun-dynamic-input",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "description",
   "main": "dist/saprun-dynamic-input.js",
   "repository": {
