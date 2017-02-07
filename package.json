@@ -1,7 +1,7 @@
 {
   "name": "saprun-dynamic-input",
   "version": "1.0.0",
-  "description": "description",
+  "description": "Custom dynamic input to floating unit depending on value size",
   "main": "dist/saprun-dynamic-input.js",
   "repository": {
     "type": "git",
@@ -14,9 +14,9 @@
   "author": "Kozlov Victor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/punkkk/ng-popover/issues"
+    "url": "https://github.com/punkkk/saprunDynamicInput/issues"
   },
-  "homepage": "https://tarun-dugar.github.io/ng-popover",
+  "homepage": "https://github.com/punkkk/saprunDynamicInput",
   "devDependencies": {
     "babel-preset-es2015": "^6.22.0",
     "gulp": "^3.9.0",
