@@ -1,17 +1,17 @@
 saprun-dynamic-input {
     position: relative;
     overflow: hidden;
+    border: solid 1px #abc;
+    min-height: 1em;
+    min-width: 1em;
+    border-radius: 5px;
+    background-color: #fff;
+    align-items: center;
 }
 
 
 saprun-dynamic-input > div.container {
     display: flex;
-    width: 100px;
-    height: 30px;
-    border: solid 1px #abc;
-    border-radius: 5px;
-    background-color: #fff;
-    align-items: center;
 }
 
 saprun-dynamic-input div.spacer{
