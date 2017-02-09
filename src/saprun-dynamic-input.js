@@ -7,7 +7,7 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
             template: `
                 <div class="container" tabindex="1">
                     <div class="input-container">
-                      <input ng-model="value" ng-change="changeHandler()" maxlength="{{maxlength}}">
+                      <input id="{{inputid}}" ng-model="value" ng-change="changeHandler()" maxlength="{{maxlength}}">
                       <div class="spacer" ng-bind="charSpacer + value"></div>
                     </div>
                     <span class="unit" ng-bind="unit"></span>
@@ -17,11 +17,13 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
                 value: "=",
                 change: "&",
                 unit: "@",
-                maxlength: "=?"
+                maxlength: "=?",
+                inputid: "@"
             },
             link: function(scope) {
                 if( scope.unit == null ) { scope.unit = ""; }
                 if( scope.maxlength == null ) { scope.maxlength = ""; }
+                if( scope.inputid == null) { scope.inputid = `saprunDynamicInput-${scope.$id}`; }
                 scope.changeHandler = () => {
                     let currentValue = scope.value;
                     scope.charSpacer = ( currentValue.length == 0 ) ? "0" : "";

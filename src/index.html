@@ -27,12 +27,31 @@
 				width: 100px;
             }
 
+			.inputWithLabel {
+				display: flex;
+				align-items: center;
+			}
+
+			.inputWithLabel > label::first-letter {
+				text-transform: uppercase;
+			}
+
+			.inputWithLabel > label::after {
+				content: ': ';
+			}
+
+			.inputWithLabel > saprun-dynamic-input {
+				margin-left: 5px;
+			}
 		</style>
 	</head>
 	<body ng-app="testDynamicInput" ng-controller="testCtrl">
 		<div class="centered">
 			<div class="space-between">
-                <saprun-dynamic-input value="first" change="changeHandler()" unit="herring" maxlength="3"></saprun-dynamic-input>
+				<div class="inputWithLabel">
+					<label for="superInput">How much fish</label>
+					<saprun-dynamic-input inputid="superInput" value="first" change="changeHandler()" unit="herring" maxlength="3"></saprun-dynamic-input>
+				</div>
                 <saprun-dynamic-input value="second" change="changeHandler()" unit="Eur"></saprun-dynamic-input>
                 <saprun-dynamic-input value="third" change="changeHandler()"></saprun-dynamic-input>
             </div>
