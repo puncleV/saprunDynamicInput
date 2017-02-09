@@ -27,7 +27,7 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
                 scope.changeHandler = () => {
                     let currentValue = scope.value;
                     scope.charSpacer = ( currentValue.length == 0 ) ? "0" : "";
-                    scope.change();
+                    setTimeout(scope.change, 0);
                 }
             }
         }

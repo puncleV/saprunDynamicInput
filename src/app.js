@@ -7,6 +7,8 @@ app.controller('testCtrl', ['$scope', function($scope) {
     $scope.second = 0;
     $scope.third = 0;
     $scope.changeHandler = () => {
-        console.log("U have change me!");
+        console.log(`first: ${$scope.first}\n` +
+                    `second: ${$scope.second}\n` +
+                    `third: ${$scope.third}`);
     }
 }]);
