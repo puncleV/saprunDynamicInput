@@ -7,7 +7,13 @@ saprunDynamicInput.directive('saprunDynamicInput', function() {
             template: `
                 <div class="container" tabindex="1">
                     <div class="input-container">
-                      <input id="{{inputid}}" ng-model="value" ng-change="changeHandler()" maxlength="{{maxlength}}">
+                      <input
+                          id="{{inputid}}"
+                          ng-model="value"
+                          ng-change="changeHandler()"
+                          maxlength="{{maxlength}}"
+                          ng-trim="false"
+                      >
                       <input class="dynamic-input_required" required ng-model="requiredValue">
 
                       <div class="spacer" ng-bind="charSpacer + value"></div>
