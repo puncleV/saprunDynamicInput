@@ -48,3 +48,6 @@ saprun-dynamic-input span.unit {
 .dynamic-input_required {
     display: none;
 }
+saprun-dynamic-input .container:focus {
+    outline: none;
+}
