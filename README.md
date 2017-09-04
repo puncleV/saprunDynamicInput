@@ -1,6 +1,7 @@
 # saprunDynamicInput
 Customizable dynamic input to floating unit depending on value size
 ![alt tag](https://github.com/punkkk/saprunDynamicInput/blob/screen/screen.png)
+[example](https://punkkk.github.io/saprunDynamicInput/)
 
 Installation
 -----
@@ -16,17 +17,17 @@ You can decorate ur input value by any symbol\string
 Options
 -------
 
-###maxlength
+### maxlength ###
 max length of input
 
-###inputid
+### inputid ###
 id for input, u can use it if you want autofocus in input on label click
 
-###unit
+### unit ###
 floating string\symbol for value
 
-###change
+### change ###
 input change handler
 
-###value
+### value ###
 value binding
