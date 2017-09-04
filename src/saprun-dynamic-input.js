@@ -1,48 +1,54 @@
 let saprunDynamicInput = angular.module('saprun-dynamic-input', []);
+let angularTimeout = null;
 
-saprunDynamicInput.directive('saprunDynamicInput', function() {
-        return {
-            restrict: 'E',
-            transclude: true,
+class SaprunDynamicInputComponent {
+    constructor( $timeout ) {
+        if( this.unit === null ) { this.unit = ""; }
+        if( this.maxlength === null ) { this.maxlength = ""; }
+        if( this.inputid === null) { this.inputid = `saprunDynamicInput-${this.$id}`; }
+        angularTimeout = $timeout;
+    }
+    requiredValue() {
+        return ( this.required !== "true" ) || ( ( this.value !== null ) && this.value.toString().length )
+                ?  "1" : "";
+    }
+
+    spacer() {
+        let emptySpacer = ( this.value.toString && this.value.toString().length === 0 ) ? "0" : "";
+        return `${emptySpacer}${this.value}`;
+    }
+    changeHandler() {
+        angularTimeout(this.change);
+    }
+}
+saprunDynamicInput.component('saprunDynamicInput', {
             template: `
-                <div class="container" tabindex="1">
-                    <div class="input-container">
+                <div class="saprun-dynamic-input" tabindex="1">
+                    <div class="saprun-dynamic-input_container">
                       <input
-                          id="{{inputid}}"
-                          ng-model="value"
-                          ng-change="changeHandler()"
-                          maxlength="{{maxlength}}"
+                          id="{{$ctrl.inputid}}"
+                          ng-model="$ctrl.value"
+                          ng-change="$ctrl.changeHandler()"
+                          maxlength="{{$ctrl.maxlength}}"
                           ng-trim="false"
+                          class="saprun-dynamic-input_input {{$ctrl.inputClass}}"
                       >
-                      <input class="dynamic-input_required" required ng-model="requiredValue">
-
-                      <div class="spacer" ng-bind="charSpacer + value"></div>
+                      <input type="hidden" required ng-model="$ctrl.requiredValue()">
+                      <div class="saprun-dynamic-input_spacer" ng-bind="$ctrl.spacer()"></div>
                     </div>
-                    <span class="unit" ng-bind="unit"></span>
+                    <span class="saprun-dynamic-input_unit" ng-bind="$ctrl.unit"></span>
                 </div>
             `,
-            scope: {
+            controller: SaprunDynamicInputComponent,
+            bindings: {
                 value: "=",
                 change: "&",
                 unit: "@",
                 maxlength: "=?",
-                inputid: "@",
-                required: "@"
-            },
-            link: function(scope) {
-                if( scope.unit == null ) { scope.unit = ""; }
-                if( scope.maxlength == null ) { scope.maxlength = ""; }
-                if( scope.inputid == null) { scope.inputid = `saprunDynamicInput-${scope.$id}`; }
-                scope.$watch("value", () => {
-                    scope.requiredValue = ( ( scope.value != null ) && scope.value.toString().length ) ||
-                        ( scope.required != "true" ) ?  "1" : "";
-                });
-                scope.changeHandler = () => {
-                    scope.charSpacer = ( ( scope.value != null ) && scope.value.toString().length == 0 ) ? "0" : "";
-                    setTimeout(scope.change, 0);
-                }
+                inputid: "@?",
+                required: "@?",
+                inputClass: "@?"
             }
-        }
 });
 
 (function () {

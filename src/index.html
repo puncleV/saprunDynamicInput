@@ -43,23 +43,27 @@
 			.inputWithLabel > saprun-dynamic-input {
 				margin-left: 5px;
 			}
+			form[name="simpleForm"] {
+				display: flex;
+				flex-flow: column nowrap;
+			}
 		</style>
 	</head>
 	<body ng-app="testDynamicInput" ng-controller="testCtrl">
 		<div class="centered">
 			<div class="space-between">
 				<div class="inputWithLabel">
-					<label for="superInput">How much fish</label>
+					<label for="superInput">How much is the fish</label>
 					<saprun-dynamic-input inputid="superInput" value="first" change="changeHandler()" unit="herring" maxlength="3"></saprun-dynamic-input>
 				</div>
                 <saprun-dynamic-input value="second" change="changeHandler()" unit="Eur"></saprun-dynamic-input>
 				<form name="simpleForm">
                 	<saprun-dynamic-input required="true" value="third" change="changeHandler()"></saprun-dynamic-input>
-					<button type="submit" ng-disabled="!simpleForm.$valid" >sdas</button>
+					<button type="submit" ng-disabled="simpleForm.$invalid" >SuperOk!</button>
 				</form>
             </div>
 		</div>	
-		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 		<script src="../src/saprun-dynamic-input.js"></script>
 		<script src="app.js"></script>
 	</body>
